@@ -1,4 +1,4 @@
-const { createStore , applyMiddleware} = require("redux");
+const { createStore , applyMiddleware,configureStore} = require("redux");
 const { default: logger } = require("redux-logger");
 
 //product Constant
@@ -43,6 +43,7 @@ const productReduser = (state=initalProduct, action)=>{
 }
 
 //Store creat
+// const store = configureStore(productReduser,applyMiddleware(logger));
 const store = createStore(productReduser,applyMiddleware(logger));
 store.subscribe(()=>{
     console.log(store.getState());
